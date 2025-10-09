@@ -11,7 +11,7 @@
 
 <br>
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2503.20783) [![Hugging Face Collection](https://img.shields.io/badge/Models-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/McGill-NLP/the-markovian-thinker-68debd2919c4ae47f50706cd)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2510.06557v1) [![Hugging Face Collection](https://img.shields.io/badge/Models-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/McGill-NLP/the-markovian-thinker-68debd2919c4ae47f50706cd)
 
 <div align="center" style="font-family: Arial, sans-serif;">
   <p>
@@ -56,7 +56,7 @@
 
 ## Links
 
-* 📄 [Paper]()
+* 📄 [Paper](https://arxiv.org/abs/2510.06557v1)
 * 🤗 Hugging Face
   * 💻 [The Markovian Thinker Collection](https://huggingface.co/collections/McGill-NLP/the-markovian-thinker-68debd2919c4ae47f50706cd)
   * 🤖 Models
