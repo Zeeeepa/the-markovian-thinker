@@ -1,0 +1,70 @@
+defaults:
+  - r1d-1.5b_deepscaler
+  - _self_
+
+algorithm:
+  adv_estimator: grpo
+
+  delethink:
+    _target_: verl.trainer.config.algorithm.DelethinkConfig
+
+    keep_head: 100
+    keep_tail: ${eval:'int(${data.max_response_length})//2 - int(${algorithm.delethink.keep_head})'}
+
+    # markovian state size (m)
+    # per-chunk thinking budget (C): data.max_response_length
+    intermediate_max_new_tokens: ${eval:'int(${data.max_response_length})//2'}
+
+    # If fixed_num_optim_steps is set, the number of optimization steps per each iteration will be fixed to this value
+    # so ppo_minibatch_size will be dynamically adjusted to keep the number of optimization steps fixed
+    fixed_num_optim_steps: 2
+    use_flat_batch_correction_ratio: true
+
+    use_trimmer_class: true
+    trimmer_name: progressive
+    trimmer_kwargs: {}
+
+data:
+  overlong_prompt_length: 2048
+  max_prompt_length: ${eval:'2048 + 4 * 100 + int(${data.max_response_length})//2 + 1'}
+
+reward_model:
+  # We don't really change anything about the reward compuation,
+  # simply we are handling the case some part of the response goes inside the prompt (because of delethink)
+  # so we'd be able to parse \boxed{...} even if it (or part of it) goes inside the prompt
+  reward_manager: delethink
+  launch_reward_fn_async: false
+
+actor_rollout_ref:
+  rollout:
+    mode: async
+
+    multi_turn:
+      max_assistant_turns: 5 # max number of delethink turns (I)
+
+    agent:
+      _target_: verl.workers.config.rollout.AgentLoopConfigWithCustomWorker
+      worker_name: with_extra_fields
+      num_workers: 1
+    
+    calculate_log_probs: true
+    
+  actor:
+    loss_agg_mode: seq-mean-token-norm-trace-length
+    clip_ratio_high: 0.26
+    tis_imp_ratio_cap: 2
+
+    policy_loss:
+      loss_mode: vanilla_with_trace_lengths
+    
+    # Doesn't matter, will be dynamically adjusted
+    ppo_mini_batch_size: 128
+
+    checkpoint:
+      keep_every_n_saves: 5
+      push_to_hub_freq: 20
+
+trainer:
+  name: delethink_ppo
+
+  save_freq: 10

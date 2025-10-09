@@ -1,0 +1,19 @@
+defaults:
+  - r1d-1.5b_deepscaler_delethink_24k
+  - train_tasks=openmath
+  - val_tasks=math_benchmarks_with_openmath
+  - _self_
+
+
+actor_rollout_ref:
+  model:
+    path: McGill-NLP/delethink-96k-base-1.5b
+  rollout:
+    multi_turn:
+      # max number of delethink turns (I)
+      # total thinking budget: 8k + 22x4K = 96k
+      max_assistant_turns: 23 
+
+    checkpoint:
+      keep_every_n_saves: 5
+      push_to_hub_freq: 10
