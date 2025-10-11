@@ -64,7 +64,7 @@
     * [`delethink-96k-1.5b`](https://huggingface.co/McGill-NLP/delethink-96k-1.5b)
     * [`longcot-24k-1.5b`](https://huggingface.co/McGill-NLP/longcot-24k-1.5b)
     * [`longcot-8k-1.5b`](https://huggingface.co/McGill-NLP/longcot-8k-1.5b)
-* 🚀 [Release tweet]()
+* 🚀 [Release tweet](https://x.com/MAghajohari/status/1976296195438887012)
 * 📝 [Blog post]()
 
 
