@@ -5,5 +5,15 @@ defaults:
 algorithm:
   adv_estimator: grpo
 
+actor_rollout_ref:
+  actor:
+    tis_imp_ratio_cap: 2
+    policy_loss:
+      # This is needed to for truncated importance sampling
+      loss_mode: vanilla_with_trace_lengths
+
+  rollout:
+    calculate_log_probs: true
+
 trainer:
   name: treetune_ppo
