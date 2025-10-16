@@ -351,7 +351,7 @@ Follow the guide: [VERL Ray Debug Tutorial](https://verl.readthedocs.io/en/lates
 <details>
 <summary>Show answer</summary>
 
-The config file is located at: [`configs/polIter_r1d-1.5b_deepscaler_delethink.yaml`](configs/polIter_r1d-1.5b_deepscaler_delethink.yaml)
+The config file is located at: [`verl/trainer/config/r1d-1.5b_deepscaler_delethink_24k.yaml`](verl/trainer/config/r1d-1.5b_deepscaler_delethink_24k.yaml) and [`verl/trainer/config/r1d-1.5b_openmath_delethink_96k.yaml`](verl/trainer/config/r1d-1.5b_openmath_delethink_96k.yaml).
 
 </details>
 
@@ -406,7 +406,7 @@ python -m verl.trainer.main_policy_iteration \
 
 Simply define it in YAML format. You can also assign a target config class to perform config validation. 
 
-See `algorithm.delethink._target_` in [`configs/polIter_r1d-1.5b_deepscaler_delethink.yaml`](configs/polIter_r1d-1.5b_deepscaler_delethink.yaml) for an example.
+See `algorithm.delethink._target_` in [`verl/trainer/config/r1d-1.5b_deepscaler_delethink_24k.yaml`](verl/trainer/config/r1d-1.5b_deepscaler_delethink_24k.yaml) for an example.
 
 </details>
 
