@@ -1,6 +1,6 @@
 <div align="center">
 
-# The Markovian Thinker
+# The Markovian Thinker: Architecture-Agnostic Linear Scaling of Reasoning
 
 [Milad Aghajohari*](https://miladink.github.io), [Kamran Chitsaz*](https://kmchiti.github.io), [Amirhossein Kazemnejad*](https://kazemnejad.com/),  
 [Sarath Chandar](https://sarathchandar.in), [Alessandro Sordoni†](https://www.microsoft.com/en-us/research/people/alsordon/), [Aaron Courville†](https://mila.quebec/en/directory/aaron-courville), [Siva Reddy†](https://sivareddy.in)
